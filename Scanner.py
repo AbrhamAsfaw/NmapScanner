@@ -38,6 +38,20 @@ def mainMenu():
         print("Invalid Choice :( ")
         mainMenu()
 
+# port Discovery
+def Port_Discovery():
+    port = input("[*]Please Enter Host Address To Scan : ")
+    print("."*80)
+    subprocess.check_call(['nmap','-n','-v','-Pn','-sV','-oN','Port_Discovery.txt', port])
+    print("."*80)
+
+# port Discovery In Range
+def Port_DiscoveryInRange():
+    port_range = input("[*]Please Enter Host Address To Scan : ")
+    print("."*80)
+    subprocess.check_call(['nmap','-p','1-100','-oN','Port_DiscoveryInRange.txt', port_range])
+    print("."*80)
+
 # Host Discovery
 def Host_Discovery():
     host = input("[*]Please Enter Host Address To Scan : ")
@@ -50,20 +64,6 @@ def Os_Discovery():
     os = input("[*]Please Enter Host Address To Scan : ")
     print("."*80)
     subprocess.check_call(['nmap','-n','-F','-A','-Pn','-sS','-O','-oN','Os_Discovery.txt', os])
-    print("."*80)
-
-# port Discovery
-def Port_Discovery():
-    port_range = input("[*]Please Enter Host Address To Scan : ")
-    print("."*80)
-    subprocess.check_call(['nmap','-p','1-100','-oN','Port_DiscoveryInRange.txt', port_range])
-    print("."*80)
-
-# port Discovery In Range
-def Port_DiscoveryInRange():
-    port = input("[*]Please Enter Host Address To Scan : ")
-    print("."*80)
-    subprocess.check_call(['nmap','-n','-v','-Pn','-sV','-oN','Port_Discovery.txt', port])
     print("."*80)
 
 #clear Terminal
